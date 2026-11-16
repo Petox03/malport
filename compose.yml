@@ -1,0 +1,17 @@
+name: malport
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - malport-gocache:/root/.cache/go-build
+      - malport-gomodcache:/root/.cache/go-mod
+    command: sleep infinity
+    tty: true
+
+volumes:
+  malport-gocache:
+  malport-gomodcache:
